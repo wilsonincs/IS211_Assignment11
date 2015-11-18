@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+  </head>
+
+  <body>
+    <h2>Current List</h2>
+	<ul>
+      {% for item in todo %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+	<p> {{err_msg}} </p>
+	<form action="/submit" method="post">
+		<input type="text" name="task"></input>
+		<input type="text" name="email"></input>
+		<select name="priority">
+			<option value="default"><Priority Level></option>
+			<option value="high">High</option>
+			<option value="medium">Medium</option>
+			<option value="low">Low</option>
+		</select>
+		<input type="submit" value="Add To Do Item">
+	</form>
+	<form action="/clear" method="post">
+		<input type="submit" value="Clear"></input>
+	</form>
+	<form action="/write" method="post">
+		<input type="submit" value="Write to file"></input>
+	</form>
+  </body>
+</html>
